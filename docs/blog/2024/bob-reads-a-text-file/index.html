@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>Bob Reads a Text File | TastyCode</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Oleksandr Gituliar">
+  <meta name="description"
+    content="One day Bob got a task to process a text file line by line. He decides to use C&#43;&#43;, as he knows that not many languages out there can compete with its speed. As C&#43;&#43; is still an uncouth beast for Bob, he decides to ask Google ChatGPT about the most popular approach to read a file line by line in C&#43;&#43;, to have some initial code for start and avoid fluttering through the endless pages of C&#43;&#43; Standard Library documentation." />
+
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZRVS8S0KQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-HZRVS8S0KQ');
+  </script>
+  
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/code.css">
+  <link rel="icon" href="/favicon.ico">
+
+  <meta property="og:title" content="Bob Reads a Text File" />
+<meta property="og:description" content="One day Bob got a task to process a text file line by line. He decides to use C&#43;&#43;, as he knows that not many languages out there can compete with its speed. As C&#43;&#43; is still an uncouth beast for Bob, he decides to ask Google ChatGPT about the most popular approach to read a file line by line in C&#43;&#43;, to have some initial code for start and avoid fluttering through the endless pages of C&#43;&#43; Standard Library documentation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tastycode.dev/blog/2024/bob-reads-a-text-file/" /><meta property="og:image" content="https://tastycode.dev/blog/2024/bob-reads-a-text-file/cover.png" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-05-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-05-01T00:00:00+00:00" />
+
+
+
+  
+</head>
+
+<body>
+  <div class="flex flex-col xl:flex-row px-6 lg:px-0 gh-content mx-auto">
+    
+    <main class="mx-auto">
+      <nav class="tc-nav gh-canvas">
+        <div class="flex flex-row justify-between gh-width-wide">
+          <a class="block font-black hover:underline text-3xl no-underline tracking-tight"
+            style="text-underline-offset: 6px;" href="/">
+            <img src="/img/logo/logo-64x64.png" class="inline-flex py-4 me-2"><span class="font-black
+            align-middle"> TastyCode</span>
+          </a>
+          <div class="block xl:hidden pt-7 flex flex-row space-x-5">
+            <a href="https://www.linkedin.com/mynetwork/discovery-see-all/?usecase=PEOPLE_FOLLOWS&followMember=gituliar"
+              target="_blank" title="LinkedIn" class="tc-sidebar-social">
+              <img src="/img/brands/linkedin.svg" />
+            </a>
+            <a href="https://github.com/gituliar" target="_blank" title="GitHub" class="tc-sidebar-social">
+              <img src="/img/brands/github.svg" />
+            </a>
+            <a href="https://twitter.com/OGituliar" target="_blank" title="Twitter" class="tc-sidebar-social">
+              <img src="/img/brands/x-twitter.svg" />
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      
+
+<article>
+  <header class="gh-canvas">
+    <h1 class="" itemprop="name headline">Bob Reads a Text File</h1>
+
+    
+
+    <div class="mb-0 flex flex-row">
+      <div class="flex-col my-auto text-sm">
+        <div itemprop="author" itemscope itemtype="http://schema.org/Person">
+          By <span class="font-bold" itemprop="name">Oleksandr Gituliar</span>
+        </div>
+        <time class="text-gray-400" datetime='2024-05-01 00:00:00 &#43;0000 UTC' itemprop="datePublished">
+          2024-05-01
+        </time>
+      </div>
+    </div>
+
+    
+    <figure class="gh-article-cover">
+      <img src="cover.png" alt="Image" class="w-full h-auto">
+    </figure>
+    
+  </header>
+
+  <section class="gh-canvas" itemprop="articleBody">
+    <p>One day Bob got a task to process a text file line by line. He decides to use C++, as he knows that not many languages out there can compete with its speed. As C++ is still an uncouth beast for Bob, he decides to ask Google ChatGPT about the most popular approach to read a file line by line in C++, to have some initial code for start and avoid fluttering through the endless pages of C++ Standard Library documentation.</p>
+<p><strong>Bob is a junior developer</strong> with big ambitions. He is serious about his craft and reputation, so he
+really wants to make sure that his code is tasty – fast, elegant, and the best of its kind.</p>
+<p>Bob is happy to share his final code on GitHub in TextFileReader.h, which you can use in your projects.</p>
+<h2 id="read-lines--chatgpt-solution">Read Lines – ChatGPT Solution</h2>
+<p>When Bob asked Google ChatGPT for the most popular approach to read a file line by line in C++, the
+solution was based on std::getline() function from the Standard Library.</p>
+<p>Here is exactly how proposed solution looked like:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#099">#include</span> <span style="color:#099">&lt;iostream&gt;</span><span style="color:#099">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#099">#include</span> <span style="color:#099">&lt;fstream&gt;</span><span style="color:#099">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#099">#include</span> <span style="color:#099">&lt;string&gt;</span><span style="color:#099">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#099"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#078;font-weight:bold">int</span> <span style="color:#c0f">main</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    std<span style="color:#555">::</span>ifstream file(<span style="color:#c30">&#34;example.txt&#34;</span>); <span style="color:#09f;font-style:italic">// Open the file
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#09f;font-style:italic"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    <span style="color:#069;font-weight:bold">if</span> (file.is_open()) { <span style="color:#09f;font-style:italic">// Check if the file is opened successfully
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#09f;font-style:italic"></span>        std<span style="color:#555">::</span>string line;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        <span style="color:#069;font-weight:bold">while</span> (std<span style="color:#555">::</span>getline(file, line)) { <span style="color:#09f;font-style:italic">// Read each line of the file
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#09f;font-style:italic"></span>            std<span style="color:#555">::</span>cout <span style="color:#555">&lt;&lt;</span> line <span style="color:#555">&lt;&lt;</span> std<span style="color:#555">::</span>endl; <span style="color:#09f;font-style:italic">// Print the line
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#09f;font-style:italic"></span>        }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>        file.close(); <span style="color:#09f;font-style:italic">// Close the file when done
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="color:#09f;font-style:italic"></span>    } <span style="color:#069;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>        <span style="color:#09f;font-style:italic">// Print error message if file cannot be opened
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span><span style="color:#09f;font-style:italic"></span>        std<span style="color:#555">::</span>cerr <span style="color:#555">&lt;&lt;</span> <span style="color:#c30">&#34;Unable to open the file.&#34;</span> <span style="color:#555">&lt;&lt;</span> std<span style="color:#555">::</span>endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    <span style="color:#069;font-weight:bold">return</span> <span style="color:#f60">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>}
+</span></span></code></pre></div><p>ChatGPT&rsquo;s take on &ldquo;How to read a file line by line in C++ ?&rdquo;</p>
+<p>Bob knows that ChatGPT solution is slow, because every line in this solution is returned by copy.
+Bob is going to fix this and find more optimal approach.</p>
+<h2 id="read-lines--tasty-solution">Read Lines – Tasty Solution</h2>
+<p>Bob found out that in C++, instead of a constant std::string object, that he has no intention to
+modify, he can return std::string_view — a lightweight object that was introduced in C++17 to avoid
+copying of constant strings. Internally, a std::string_view occupies only 16 bytes and contains two
+member fields:</p>
+<p>a pointer to the string
+a size of the string
+Next morning, after thinking before falling asleep, Bob has a concrete plan in his mind that goes as
+following:</p>
+<video class="gh-width-wide" src='video-1.mp4' width='auto&#34;' height='auto' loop=""
+    autoplay="" playsinline="">
+    <source type="">
+    Your browser does not support the video tag.
+</video>
+<p>Notice how carefully Bob treats incomplete lines at the end of the buffer, which require special
+attention. He postpones these peculiarities for later. For now, Bob is more concerned about how his
+class is supposed to be used by his peers.</p>
+<h3 id="usage-workflow">Usage Workflow</h3>
+<p>Bob knows that user experience and convenient public interface is as important as fast and safe
+code. Before starting to code, he wants to decide on how his code will be used or how people call it
+– public interface.</p>
+<p>Instead of inventing a wheel Bob decides to follow a common usage pattern suggested by ChatGPT,
+which goes along the following lines:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>TextFileReader src;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#069;font-weight:bold">if</span> (Error err <span style="color:#555">=</span> <span style="color:#f60">1</span><span style="color:#a00;background-color:#faa">️⃣</span> src.open(<span style="color:#c30">&#34;stocks_20240310.csv&#34;</span>); <span style="color:#555">!</span>err.empty())
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>  <span style="color:#069;font-weight:bold">return</span> err;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>Error err;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#069;font-weight:bold">while</span> (<span style="color:#f60">2</span><span style="color:#a00;background-color:#faa">️⃣</span> src.readline(err)) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>  <span style="color:#09f;font-style:italic">//  Process 3️⃣ src.line()
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#09f;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#069;font-weight:bold">if</span> (<span style="color:#555">!</span>err.empty())
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>  <span style="color:#069;font-weight:bold">return</span> err;
+</span></span></code></pre></div><p>Process a text file by lines in C++</p>
+<p>1️⃣ open() Usually, we start with opening the file given its path. This step might fail for various
+reasons, hence Bob wants to indicate this. If an issue occurs he will return a string that describes
+it, for example &ldquo;File doesn&rsquo;t exist&rdquo; or &ldquo;Too many open files&rdquo;. This is not the perfect way to
+indicate an error, but he&rsquo;s fine with it for now.</p>
+<p>2️⃣ readline() loop is identical to std::getline() except that we access a current line
+with3️⃣line(), which returns std::string_view to the internal buffer. It&rsquo;s efficient as no copying
+happens.</p>
+<p>Bob also finds it useful if his users can read a file in fixed-sized chunks, without splitting by a
+newline. Hence, he offers an alternative for steps 2️⃣ and 3️⃣ that looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Error err;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#069;font-weight:bold">while</span> (<span style="color:#f60">4</span><span style="color:#a00;background-color:#faa">️⃣</span> src.read(err)) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>  <span style="color:#09f;font-style:italic">// process 5️⃣ src.buf();
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#09f;font-style:italic"></span>}
+</span></span></code></pre></div><p>Process a text file by fixed-size blocks in C++</p>
+<p>4️⃣ read() takes next chunk of data into the internal buffer. We can read this buffer with
+5️⃣TextFileReader::buf() method, which returns a lightweight string view without copying.q</p>
+<h2 id="textfilereader-in-depth">TextFileReader in Depth</h2>
+<p>Finally, as Bob has a more clear vision for his solution, it&rsquo;s now time to start coding.</p>
+<h3 id="core-methods">Core Methods</h3>
+<p>readline() method is a central point of the entire class. It defines what other methods and data
+members should the class contain. Intuitively, Bob knows that any other method is useless unless he
+has readline() ready.</p>
+<p>After about an hour of prototyping, he wraps everything into the following five-step function:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#078;font-weight:bold">bool</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>TextFileReader<span style="color:#555">::</span>readline(Error<span style="color:#555">&amp;</span> err)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>  <span style="color:#069;font-weight:bold">do</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    <span style="color:#09f;font-style:italic">// 1️⃣ Find next \n char
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#09f;font-style:italic"></span>    <span style="color:#069;font-weight:bold">if</span> (<span style="color:#069;font-weight:bold">const</span> <span style="color:#069;font-weight:bold">auto</span> p <span style="color:#555">=</span> (c8<span style="color:#555">*</span>)memchr(m_buf <span style="color:#555">+</span> m_cursor, <span style="color:#c30">&#39;\n&#39;</span>, m_size <span style="color:#555">-</span> m_cursor); p) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>      m_line <span style="color:#555">=</span> string_view(m_buf <span style="color:#555">+</span> m_cursor, p <span style="color:#555">-</span> (m_buf <span style="color:#555">+</span> m_cursor));
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>      m_cursor <span style="color:#555">=</span> p <span style="color:#555">-</span> m_buf <span style="color:#555">+</span> <span style="color:#f60">1</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>      <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">true</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    <span style="color:#09f;font-style:italic">// 2️⃣ No \n found
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#09f;font-style:italic"></span>    <span style="color:#069;font-weight:bold">if</span> (std<span style="color:#555">::</span>feof(m_src)) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>      m_line <span style="color:#555">=</span> string_view(m_buf <span style="color:#555">+</span> m_cursor, m_size <span style="color:#555">-</span> m_cursor);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>      <span style="color:#069;font-weight:bold">return</span> m_cursor <span style="color:#555">&lt;</span> m_size;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>    <span style="color:#09f;font-style:italic">// 3️⃣ Copy tail to the beginning
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span><span style="color:#09f;font-style:italic"></span>    <span style="color:#069;font-weight:bold">if</span> (m_cursor <span style="color:#555">&lt;</span> m_size) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>      std<span style="color:#555">::</span>memcpy(m_buf, m_buf <span style="color:#555">+</span> m_cursor, m_size <span style="color:#555">-</span> m_cursor);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>    <span style="color:#09f;font-style:italic">// 4️⃣ Consume more data (do not update m_cursor)
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span><span style="color:#09f;font-style:italic"></span>    <span style="color:#069;font-weight:bold">if</span> (err <span style="color:#555">=</span> read(m_size <span style="color:#555">-</span> m_cursor); <span style="color:#555">!</span>err.empty()) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>      err <span style="color:#555">=</span> <span style="color:#c30">&#34;TextFileReader::readline : &#34;</span> <span style="color:#555">+</span> err;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>      <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">false</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>  } <span style="color:#069;font-weight:bold">while</span> (m_size);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>  <span style="color:#09f;font-style:italic">// 5️⃣ We should have already returned false in ❷ (indicating EOF)
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span><span style="color:#09f;font-style:italic"></span>  err <span style="color:#555">=</span> <span style="color:#c30">&#34;TextFileReader::readline : EOF&#34;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>  <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">false</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>};
+</span></span></code></pre></div><p>read() is a helper method that reads chunks of the text file into the internal buffer. Bob implements it as following:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#078;font-weight:bold">bool</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>TextFileReader<span style="color:#555">::</span>read(Error<span style="color:#555">&amp;</span> err, u64 pos <span style="color:#555">=</span> <span style="color:#f60">0</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>  <span style="color:#069;font-weight:bold">if</span> (m_size <span style="color:#555">=</span> std<span style="color:#555">::</span>fread(m_buf <span style="color:#555">+</span> pos, <span style="color:#f60">1</span>, m_capacity <span style="color:#555">-</span> pos, m_src); <span style="color:#555">!</span>m_size) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    <span style="color:#069;font-weight:bold">if</span> (std<span style="color:#555">::</span>ferror(m_src)) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>      err <span style="color:#555">=</span> <span style="color:#c30">&#34;Fail to read : errno = &#34;</span> <span style="color:#555">+</span> std<span style="color:#555">::</span>to_string(m_size);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>      <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">false</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>  }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>  m_size <span style="color:#555">+=</span> pos;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>  m_cursor <span style="color:#555">=</span> <span style="color:#f60">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>  <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">true</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>};
+</span></span></code></pre></div><p>Bob believes that his users will find this feature useful. He exposes it as a public method.
+However, simultaneously reading a file by chunks and by line breaks internal state of his class. He
+makes sure to warn users about this in the documentation:</p>
+<p>Mixed usage of read() and readline() is prohibited. You should call only one of them after the
+TextFileReader has been initialized.</p>
+<h3 id="auxiliary-methods">Auxiliary Methods</h3>
+<p>Remaining methods are responsible for managing resources: the FILE object and the internal memory
+buffer, which should be allocated and deallocated. This is what open() and close() methods do.</p>
+<p>close() call is optional. It will be called automatically by the destructor or open() method, which
+reuses already allocated buffer to read a new file. This improves usability and makes our class
+safer. It&rsquo;s a good example of the RAII idiom in action.</p>
+<p>Alice, Bob&rsquo;s more experienced colleague, suggest Bob to disable a default copy constructor (or
+implement a custom one, but she believes this is an overkill for this task). She says that a default
+copy constructor duplicates pointers to the internal buffer, but not the buffer itself. This
+eventually corrupts internal state of the class when duplicated readers fill internal buffers from
+the same FILE object.</p>
+<h2 id="benchmarks">Benchmarks</h2>
+<p>Bob is curious to compare his code against the std::getline approach proposed by ChatGPT. He creates
+a bunch of files with line length from 10 to 1'000 and number of lines from 1'000 to 1'000'000.</p>
+<p><img src="image-1.png" alt="Benchmark histogram"></p>
+<p>Surprisingly, his code is at least 20x faster than std::getline, sometimes it&rsquo;s even 180x faster.
+&ldquo;Not bad for an amateur!&rdquo; – he shouts, proud of himself.</p>
+<p>&ldquo;This is a good example of how important it is to benchmark your code and operate with concrete
+measurements when designing a final solution&rdquo; – he says to Alice.</p>
+<h2 id="final-word">Final Word</h2>
+<p>I&rsquo;m in a mood to write a philosophical summary. Given the context it might be inappropriate, but
+this is my blog after all, so if I can&rsquo;t be open here, how can I expect the same from you and other
+readers ?</p>
+<p>The moral of this story is not that we can read files 100x faster. (Of course this is an important
+takeaway too.) The main point is to engineer your own solutions even for very simple tasks, at least
+to think about a possible solution. This is the most efficient way to learn – learn by doing. You
+can learn C++ Standard by heart, but you&rsquo;ll never learn by heart how to engineer. This is a
+practical skill and is earned by engineering your own way, even if this is not the most efficient
+way with at first. Eventually, you&rsquo;ll improve, your thinking will improve, and your code will
+improve.</p>
+<p>Have fun with code!😏</p>
+
+  </section>
+</article>
+
+
+<div class="px-2">
+  <script src="https://giscus.app/client.js" data-repo="gituliar/tastyhedge.com" data-repo-id="R_kgDOLP4lzg"
+    data-category="General" data-category-id="DIC_kwDOLP4lzs4CdfL9" data-mapping="pathname" data-strict="0"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light_high_contrast"
+    data-lang="en" crossorigin="anonymous" async>
+    </script>
+</div>
+
+
+
+    </main>
+
+    
+    <aside class="hidden xl:block tc-sidebar pt-3 sticky top-0 mb-auto">
+      <div class="mt-3 text-justify">
+        <p>My name is <b>Oleksandr</b>. I write <b>TastyCode</b> because <b>C++ is fun</b>.
+        </p>
+      </div>
+      <div class="flex flex-row content-center my-auto">
+        <div class="flex flex-col my-auto">
+          <div class="font-black mb-1">Follow me on</div>
+          <div class="flex flex-row space-x-5">
+            <a href="https://www.linkedin.com/mynetwork/discovery-see-all/?usecase=PEOPLE_FOLLOWS&followMember=gituliar"
+              target="_blank" title="LinkedIn" class="tc-sidebar-social">
+              <img src="/img/brands/linkedin.svg" />
+            </a>
+            <a href="https://github.com/gituliar" target="_blank" title="GitHub" class="tc-sidebar-social">
+              <img src="/img/brands/github.svg" />
+            </a>
+            <a href="https://twitter.com/OGituliar" target="_blank" title="Twitter" class="tc-sidebar-social">
+              <img src="/img/brands/x-twitter.svg" />
+            </a>
+          </div>
+        </div>
+        <div class="ml-auto inline-block">
+          <img src="/img/profile-64x64.png" class="w-16 rounded-full scale-x-[-1]">
+        </div>
+      </div>
+    </aside>
+  </div>
+
+
+
+  <script>
+    document.querySelectorAll('a[href^="http"]').forEach(function (e) {
+      e.setAttribute('target', '_blank');
+    });
+  </script>
+</body>
+
+</html>

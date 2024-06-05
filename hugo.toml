@@ -1,0 +1,31 @@
+baseURL = "https://tastycode.dev/"
+languageCode = 'en-us'
+title = 'TastyCode'
+
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[params]
+  description = 'Blog about Programming and Computer Graphics'
+
+[params.author]
+  name = "Oleksandr Gituliar"
+  email = "oleksandr@gituliar.net"
+
+[outputFormats.RSS]
+  mediatype = "application/rss"
+  baseName = "feed"
+
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    hl_inline = false
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = false
+    noClasses = true
+    noHl = false
+    style = 'manni'
