@@ -5,12 +5,12 @@
   <h2>{{ .Key }}</h2>
   {{ range .Pages }}
   <li class="flex flex-row space-x-4 m-0 py-2">
-    <a class="text-xl" href="{{ .RelPermalink }}">
-      <img class="w-28 md:w-52" src="{{ .RelPermalink }}/{{ .Params.Cover }}" />
+    <a class="" href="{{ .RelPermalink }}">
+      <img class="w-32 md:w-52" src="{{ .RelPermalink }}/{{ .Params.Cover }}" />
     </a>
-    <div class="flex flex-col space-y-2">
-      <a class="text-xl" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-      <time class="text-sm">{{ time.Format "2006-01-02" .Date }}</time>
+    <div class="flex flex-col md:space-y-2 w-full">
+      <a class="text-base md:text-xl" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      <time class="text-xs md:text-sm">{{ time.Format "2006-01-02" .Date }}</time>
     </div>
   </li>
   {{ end }}
