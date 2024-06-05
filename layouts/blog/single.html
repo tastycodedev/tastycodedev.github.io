@@ -28,19 +28,21 @@
     {{ end }}
   </header>
 
-  <section class="gh-canvas" itemprop="articleBody">
+  <section class="gh-canvas mb-8" itemprop="articleBody">
     {{ .Content }}
   </section>
-</article>
 
-{{ if eq hugo.Environment "production" }}
-<div class="px-2">
-  <script src="https://giscus.app/client.js" data-repo="tastycodedev/tastycodedev.github.io"
-    data-repo-id="R_kgDOMFMNRg" data-category="General" data-category-id="DIC_kwDOMFMNRs4Cf4I9" data-mapping="pathname"
-    data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom"
-    data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
-    </script>
-</div>
-{{ end }}
+  {{ if eq hugo.Environment "production" }}
+  <div class="gh-canvas">
+    <div class="gh-width-wide mb-8">
+      <script src="https://giscus.app/client.js" data-repo="tastycodedev/tastycodedev.github.io"
+        data-repo-id="R_kgDOMFMNRg" data-category="General" data-category-id="DIC_kwDOMFMNRs4Cf4I9"
+        data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0"
+        data-input-position="bottom" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
+        </script>
+    </div>
+  </div>
+  {{ end }}
+</article>
 
 {{ end }}
