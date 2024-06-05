@@ -184,6 +184,9 @@
     width: var(--sidebar-width);
     font-weight: 400;
   }
+  .tc-sidebar-text {
+    @apply text-cyan-600 opacity-80;
+  }
 
   .tc-sidebar b {
     font-weight: 700;
@@ -195,7 +198,7 @@
 
   .tc-sidebar-social img {
     display: inline-block;
-    width: 26px;
+    width: 25px;
   }
   .tc-sidebar-social img:hover {
     /* transform: scale(1.25); */
