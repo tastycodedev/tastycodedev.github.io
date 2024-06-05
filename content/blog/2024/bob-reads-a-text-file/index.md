@@ -1,6 +1,8 @@
 ---
 title: "Bob Reads a Text File"
-description: ""
+description: 'This is a story about Bob, a junior developer, who learns how to optimize file
+reading in C++ by switching from std::getline to std::string_view. This change drastically
+improves performance, making the process even 180x faster in some cases.'
 cover: cover.png
 image: cover.png
 date: 2024-05-01

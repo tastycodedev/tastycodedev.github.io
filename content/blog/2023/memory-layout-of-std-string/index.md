@@ -1,6 +1,9 @@
 ---
 title: "Memory Layout of std::string"
-description: "Learn about memory layout of std::string in MSVC, GCC, and LLVM."
+description: "Explore the memory layout of std::string in C++ with insights into implementations
+by MSVC, GCC, and LLVM. Understand key concepts like Small String Optimization (SSO), memory
+allocation policies, and performance trade-offs. This post is essential for optimizing string
+handling in your C++ projects."
 cover: cover.jpeg
 image: cover.jpeg
 date: 2023-08-07
