@@ -687,6 +687,12 @@ a:hover img {
   font-weight: 400;
 }
 
+.tc-sidebar-text {
+  --tw-text-opacity: 1;
+  color: rgb(8 145 178 / var(--tw-text-opacity));
+  opacity: 0.8;
+}
+
 .tc-sidebar b {
   font-weight: 700;
 }
@@ -697,7 +703,7 @@ a:hover img {
 
 .tc-sidebar-social img {
   display: inline-block;
-  width: 26px;
+  width: 25px;
 }
 
 .tc-sidebar-social img:hover {
@@ -893,6 +899,11 @@ a:hover img {
   margin-right: auto;
 }
 
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .my-auto {
   margin-top: auto;
   margin-bottom: auto;
@@ -916,10 +927,6 @@ a:hover img {
 
 .ml-auto {
   margin-left: auto;
-}
-
-.mt-3 {
-  margin-top: 0.75rem;
 }
 
 .block {
@@ -1019,22 +1026,17 @@ a:hover img {
   padding-bottom: 0.5rem;
 }
 
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
 
-.pt-3 {
-  padding-top: 0.75rem;
+.pt-6 {
+  padding-top: 1.5rem;
 }
 
-.pt-7 {
-  padding-top: 1.75rem;
+.pt-9 {
+  padding-top: 2.25rem;
 }
 
 .text-justify {
@@ -1084,10 +1086,6 @@ a:hover img {
 
 .no-underline {
   text-decoration-line: none;
-}
-
-.opacity-60 {
-  opacity: 0.6;
 }
 
 .hover\:underline:hover {
