@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>TastyCode</title>
-    <link>http://localhost:1313/</link>
+    <link>https://tastycode.dev/</link>
     <description>Recent content on TastyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>oleksandr@gituliar.net (Oleksandr Gituliar)</managingEditor>
     <webMaster>oleksandr@gituliar.net (Oleksandr Gituliar)</webMaster>
     <lastBuildDate>Wed, 01 May 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tastycode.dev/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bob Reads a Text File</title>
-      <link>http://localhost:1313/blog/2024/bob-reads-a-text-file/</link>
+      <link>https://tastycode.dev/blog/2024/bob-reads-a-text-file/</link>
       <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate><author>oleksandr@gituliar.net (Oleksandr Gituliar)</author>
-      <guid>http://localhost:1313/blog/2024/bob-reads-a-text-file/</guid>
+      <guid>https://tastycode.dev/blog/2024/bob-reads-a-text-file/</guid>
       <description>One day Bob got a task to process a text file line by line. He decides to use C++, as he knows that not many languages out there can compete with its speed. As C++ is still an uncouth beast for Bob, he decides to ask Google ChatGPT about the most popular approach to read a file line by line in C++, to have some initial code for start and avoid fluttering through the endless pages of C++ Standard Library documentation.</description>
     </item>
     <item>
       <title>Memory Layout of std::string</title>
-      <link>http://localhost:1313/blog/2023/memory-layout-of-std-string/</link>
+      <link>https://tastycode.dev/blog/2023/memory-layout-of-std-string/</link>
       <pubDate>Mon, 07 Aug 2023 00:00:00 +0000</pubDate><author>oleksandr@gituliar.net (Oleksandr Gituliar)</author>
-      <guid>http://localhost:1313/blog/2023/memory-layout-of-std-string/</guid>
+      <guid>https://tastycode.dev/blog/2023/memory-layout-of-std-string/</guid>
       <description>For a professional C++ developer, it&amp;rsquo;s important to understand memory organization of the data structures, especially when it comes to the containers from the C++ Standard Library. In this post of Tasty C++ series we&amp;rsquo;ll look inside of std::string, so that you can more effectively work with C++ strings and take advantage and avoid pitfalls of the C++ Standard Library you are using.&#xA;In C++ Standard Library, std::string is one of the three contiguous containers (together with std::array and std::vector).</description>
     </item>
   </channel>
