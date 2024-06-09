@@ -185,10 +185,11 @@
     font-weight: 400;
   }
   .tc-sidebar-text {
-    @apply text-cyan-600 opacity-80;
+    @apply text-teal-800 opacity-100;
+    font-weight: 500;
   }
 
-  .tc-sidebar b {
+  .tc-sidebar-text b {
     font-weight: 700;
   }
 
