@@ -8,6 +8,7 @@ cover: cover.jpeg
 image: cover.jpeg
 date: 2023-08-07
 aliases:
+  - /blog/tasty-cpp-memory-layout-of-std-string
   - /memory-layout-of-std-string
 ---
 
