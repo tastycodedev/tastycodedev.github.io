@@ -688,9 +688,6 @@ a:hover img {
 }
 
 .tc-sidebar-text {
-  --tw-text-opacity: 1;
-  color: rgb(17 94 89 / var(--tw-text-opacity));
-  opacity: 1;
   font-weight: 500;
 }
 

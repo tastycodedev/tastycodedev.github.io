@@ -185,7 +185,6 @@
     font-weight: 400;
   }
   .tc-sidebar-text {
-    @apply text-teal-800 opacity-100;
     font-weight: 500;
   }
 
